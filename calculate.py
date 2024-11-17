@@ -1,33 +1,22 @@
-import circle
-import square
+class Calculator:
+    def add(self, a, b):
+        if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+            raise TypeError("Operands must be numbers.")
+        return a + b
 
+    def subtract(self, a, b):
+        if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+            raise TypeError("Operands must be numbers.")
+        return a - b
 
-figs = ['circle', 'square']
-funcs = ['perimeter', 'area']
-sizes = {}
+    def multiply(self, a, b):
+        if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+            raise TypeError("Operands must be numbers.")
+        return a * b
 
-def calc(fig, func, size):
-	assert fig in figs
-	assert func in funcs
-
-	result = eval(f'{fig}.{func}(*{size})')
-	print(f'{func} of {fig} is {result}')
-
-if __name__ == "__main__":
-	func = ''
-	fig = ''
-	size = list()
-    
-	while fig not in figs:
-		fig = input(f"Enter figure name, avaliable are {figs}:\n")
-	
-	while func not in funcs:
-		func = input(f"Enter function name, avaliable are {funcs}:\n")
-	
-	while len(size) != sizes.get(f"{func}-{fig}", 1):
-		size = list(map(int, input("Input figure sizes separated by space, 1 for circle and square\n").split(' ')))
-	
-	calc(fig, func, size)
-
-
-
+    def divide(self, a, b):
+        if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+            raise TypeError("Operands must be numbers.")
+        if b == 0:
+            raise ValueError("Cannot divide by zero.")
+        return a / b
